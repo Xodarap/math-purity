@@ -7,10 +7,13 @@ import FormControl from '@material-ui/core/FormControl';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import { Container, Divider, Typography } from '@material-ui/core';
+import { Container, Divider, Link, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import Footer from '../components/footer';
+
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -33,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Home() {
   const classes = useStyles();
   const [checked, setCheckedState] = React.useState(true);
-  const [score, setScore] = React.useState(0);
+  const [score, setScore] = React.useState(20);
   const setChecked = (name) => (event) => setCheckedState(state => {
     const newState = ({ ...state, [name]: event.target.checked })
     const newScore = 20 - Object.values(newState).filter(v => v).reduce((ac, _) => ac + 1, 0)
@@ -88,20 +91,14 @@ export default function Home() {
               </FormControl>
             </Grid>
           </Grid>
-          <Divider  variant="middle" style={{marginTop: '15px',marginBottom: '15px'}}/>
+          <Divider variant="middle" style={{ marginTop: '15px', marginBottom: '15px' }} />
           <ScoreSection score={score} />
         </Container>
       </main>
-
-
-      <footer className={styles.footer}>
-        <a
-          href="https://github.com/Xodarap/interior-crocodile-alligator"   target="_blank"
-          rel="noopener noreferrer"
-        >
-          Made with ❤ by @Benthamite
-        </a>
-      </footer>
+      <Container maxWidth="md">
+        <Divider variant="middle" style={{ marginTop: '15px', marginBottom: '15px' }} />
+        <Footer />
+      </Container>
     </div>
   )
 }
@@ -115,11 +112,11 @@ function ScoreSection({ score }) {
     <Grid item xs={12} sm={4} md={3} style={{ alignItems: 'center', display: 'flex' }}>
       <div>
         <Typography variant="body1">Score: <strong>{score}</strong></Typography>
-        <br/>
+        <br />
         <Typography variant="body1">{text}</Typography>
       </div>
     </Grid>
-    <Grid item xs={12} sm={4} md={3} style={{minWidth: '200px', justifyContent: 'center', display: 'flex'}}>
+    <Grid item xs={12} sm={4} md={3} style={{ minWidth: '200px', justifyContent: 'center', display: 'flex' }}>
       <img src={image} style={{ width: '200px' }} />
     </Grid>
   </Grid>
@@ -128,7 +125,7 @@ function ScoreSection({ score }) {
 const scoreSummary = ({ score }) => {
   if (score > 15) {
     return {
-      text: "You're the kind of mathematician Hardy was talking about",
+      text: "Hardy would be proud",
       image: "hardy.jpg"
     }
   }
