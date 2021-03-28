@@ -69,7 +69,7 @@ export default function Home() {
                   <MakeCheckbox name='co-author'>Had nonmathematician co-authors</MakeCheckbox>
                   <MakeCheckbox name='more_than_two'>Had more than two co-authors</MakeCheckbox>
                   <MakeCheckbox name='constructive'>Included a constructive proof</MakeCheckbox>
-                  <MakeCheckbox name='cited'>Was cited by someone other than me</MakeCheckbox>
+                  <MakeCheckbox name='cited'>Was cited by someone you don't personally know</MakeCheckbox>
                   <MakeCheckbox name='Matlab'>Used Matlab</MakeCheckbox>
                   <MakeCheckbox name='generalization'>Was not a generalization of a previously known result</MakeCheckbox>
                   <MakeCheckbox name='exercise'>Didn't include the phrase "left as an exercise for the reader"</MakeCheckbox>
@@ -130,7 +130,7 @@ const scoreSummary = ({ score }) => {
   if (score > 10) {
     return {
       text: "You probably work at a liberal arts university",
-      image: "hardy.jpg"
+      image: "University.jpg!s"
     }
   }
   return {
