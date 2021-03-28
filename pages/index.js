@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     marginTop: '20px',
     marginBottom: '20px',
+  },
+  formControl: {
+    marginBottom: '20px'
   }
 }));
 
