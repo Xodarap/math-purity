@@ -45,9 +45,13 @@ export default function Home() {
     return newState
   })
   const MakeCheckbox = ({ name, children }) =>
-    <FormControlLabel control={<Checkbox checked={checked[name]} onChange={setChecked(name)} />}
+    <FormControlLabel 
+      style={{display:'table'}} 
+      control={<Checkbox style={{display:'table-cell', paddingTop: '2px', width: '42px'}} 
+      checked={checked[name]} onChange={setChecked(name)} />}
       label={children}
     />
+    
   return (
     <div className={styles.container}>
       <Head>
